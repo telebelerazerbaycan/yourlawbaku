@@ -1,0 +1,292 @@
+@mixin breakpoint($point) {
+    @if $point ==small {
+        @media (min-width:300px) {
+            @content;
+        }
+    }
+
+    @else if $point ==medium {
+        @media (min-width:768px) {
+            @content;
+        }
+    }
+
+    @else if $point ==large {
+        @media (min-width:992px) {
+            @content;
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none !important;
+    list-style: none !important;
+    box-sizing: border-box;
+}
+
+/* Head */
+.h {
+    position: fixed;
+    width: 100%;
+    z-index: 9999999;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    @include breakpoint(small){
+        font-size: 25px;
+        font-family: "DM Serif Metin";
+    }
+}
+.hleft{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    @include breakpoint(small){
+        justify-content: space-between;
+    }
+    .hicon{
+        display: flex;
+        i{
+            color: #FF00FF;
+        }
+        .clr{
+            margin-bottom: 0;
+            margin-left: 3px;
+        }
+    }
+    .bar{
+       font-size: 18px;
+        a{
+            color: red;
+            i{
+                animation: ritm .7s ease infinite ;
+            }
+        }
+    }
+}
+@keyframes ritm{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+}
+/* Welcome part */
+#welcome{
+    @include breakpoint(small){
+        padding-block: 50px;
+
+    }
+}
+.m_title{
+   @include breakpoint(small){
+    margin-bottom: 20px;
+    text-align: center;
+   }
+   @include breakpoint(medium){
+    text-align: start;
+   }
+}
+.wlcm {
+    padding-block: 20px 0;
+    display: flex;
+   @include breakpoint(small){
+    flex-direction: column;
+    align-items: center;
+   }
+   @include breakpoint(medium){
+    flex-direction: row;
+   }
+}
+
+.business {
+    font-weight: 900;
+    color: green;
+}
+
+.company {
+    font-weight: 900;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding-top: 20px;
+    @include breakpoint(small){
+        justify-content: center;
+    }
+    @include breakpoint(medium){
+        justify-content: flex-start;
+    }
+}
+
+.button a {
+    border: 1px solid green;
+    border-radius: 20px;
+    padding: 20px;
+    transition: .7s;
+}
+
+.button a:hover {
+    background-color: green;
+    color: white;
+}
+.photo{
+    img{
+        width: 300px;
+    }
+}
+// Plan
+#plan{
+    @include breakpoint(small){
+        padding-block: 30px;
+    }
+    h2{
+        text-align: center;
+        color: green;
+        font-size: 25px;
+        font-weight: 800;
+        font-family: "Roboto Mono";
+    }
+    .planboxes{
+        display: grid;
+        width: 100%;
+        @include breakpoint(small){
+            grid-template-rows: repeat(3,1fr);
+            grid-template-columns: repeat(1,1fr);
+            gap: 15px;
+        }
+        @include breakpoint(medium){
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(1,1fr);
+        }
+        .planbox{
+            overflow: hidden;
+            border-radius: 10px;
+            width: 100%;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            padding: 10px;
+            text-align: center;
+            transition: .7s;
+            @include breakpoint(small){
+                height: 170px;
+            }
+            @include breakpoint(medium){
+                height: 200px;
+            }
+           
+            p{
+                margin-bottom: 0;
+                font-size: 18px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            .planbox1{
+             @include breakpoint(small){
+                font-size: 14px;
+             }
+            }
+            img{
+                border-radius: 20px;
+                @include breakpoint(small){
+                    width: 130px;
+                }
+                @include breakpoint(medium){
+                    transform: t;
+                }
+            }
+        }
+    }
+}
+.planbox:hover{
+    background-color: rgb(119, 194, 123);
+    color: white;
+}
+/* Footer part */
+#fcolor{
+    background-color: #fef9e7;
+    @include breakpoint(small){
+        padding-block: 20px;
+    }
+}
+.fbutton{
+    border: 1px solid red;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: red;
+    color: white;
+    transition: .7s;
+}
+
+.ftxt{
+    border: 1px solid transparent;
+    font-size: 25px;
+    border-radius: 25px;
+    outline: none;
+    padding: 5px;
+    width: 600px;
+}
+/* Pov part */
+
+.boxes{
+   text-align: start;
+    align-items: center;
+}
+.qutu2{
+    ul{
+        padding: 0;
+        li{
+            text-align: start;
+            a{
+                color: red;
+                font-size: 28px; 
+            }
+           i{
+            margin-right: 5px;
+           }
+        }
+    }
+}
+
+.qutu2 a:hover {
+    text-decoration: underline !important;
+}
+/* Security */
+.security_card{
+    display: flex;
+    flex-direction: column;
+}
+.security_card a{
+    color: red;
+    font-weight: 700;
+}
+.security_card p{
+    color: red;
+    font-weight: 700;
+    margin: 0;
+}
+.dev{
+    color: darkblue !important;
+    text-align: start; 
+    position: relative;
+    width: 130px;
+}
+.dev::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: darkblue;
+    left: 0;
+    transition: .7s;
+    width: 0;
+
+    bottom: 0;
+}
+.dev:hover::after{
+    width: 127px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
